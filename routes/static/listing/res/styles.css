@@ -1,0 +1,90 @@
+body {
+    font-family: "Varela Round", Verdana, Geneva, Tahoma, sans-serif;
+    padding: 1.35rem;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    /* gap: 0.5rem; */
+    flex-wrap: wrap;
+}
+
+.ringDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* border-radius: 3px; */
+    border: 0.5px solid #444;
+    width: 32vw;
+    height: 35vh;
+    margin: -1px 0 0 -1px;
+    /* margin-bottom: 1rem; */
+}
+
+div.ringDivImg img {
+    min-width: 10rem;
+    max-width: 10rem;
+}
+
+div.ringDivContent {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+div.ringDivContent p.desc {
+    font-weight: 800;
+}
+
+div.ringDivContent p.sku {
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+div.ringDivContent p.price {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+div.ringDivContent p.retail {
+    font-weight: 200;
+    font-size: 0.7rem;
+}
+
+div.ringDivContent div.ringDivButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+div.ringDivContent div.ringDivButtons button{
+    border-radius: 50px;
+    font-size: 10px;
+    padding: 3px 7px;
+    border: 1px solid black;
+}
+
+div.ringDivContent div.ringDivButtons button:hover{
+    background-color: #111;
+    color: #EEE;
+}
+
+div.ringDivContent .ringDivFooter {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+div.ringDivContent .ringDivFooter a{
+    margin: 0.7rem 0 0 0;
+    color: #222;
+    font-size: 0.65rem;
+    margin-right: 14vw;
+}
+
+div.ringDivContent .ringDivFooter img{
+    cursor: pointer;
+}

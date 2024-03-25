@@ -1,0 +1,104 @@
+html {
+    font-family: "Changa", Verdana, Tahoma, sans-serif;
+}
+
+body {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: flex-end;
+    background-image: url("./images/background.png");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+}
+
+div#login {
+    display: flex;
+    flex-direction: column;
+    margin: 25vh 2vw 25vh 0;
+    padding: 2% 3%;
+    float: left;
+    background-color: #FFF;
+    border-radius: 7px;
+    max-width: 30vw;
+}
+
+div#login h3 {
+    color: #000;
+    font-family: "Esteban", "verdana";
+    text-wrap: pretty;
+    font-size: 1.7rem;
+    margin: 0 0;
+}
+
+div#login > p {
+    color: #000;
+    margin: 5px 0 0 0;
+}
+
+div#login input.textInput{
+    width: 100%;
+    margin: 5% 0 0 0;
+    padding: 10px 3px;
+}
+
+div#passwordDiv {
+    position: relative;
+}
+
+img#passEye {
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+    top: 2rem;
+}
+
+.error{
+    display: none;
+    color: red;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+div#login div#remember-forgot {
+    width: 100%;
+    margin: 3% 0;
+}
+
+div#login div#remember-forgot a {
+    float: right;
+    color: #333;
+}
+
+div#login input[type="submit"]{
+    width: 100%;
+    background-color: #000;
+    color: #FFF;
+    border: 1px solid #BBB;
+    padding: 10px 0;
+    margin: 10px 0 0 0;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+
+
+@media only screen and (max-width: 1020px) {
+    div#login {
+        max-width: 40vw;
+    }
+  }
+
+@media only screen and (max-width: 768px) {
+div#login {
+    max-width: 50vw;
+}
+}
+
+@media only screen and (max-width: 587px) {
+    div#login {
+        max-width: 60vw;
+    }
+    }

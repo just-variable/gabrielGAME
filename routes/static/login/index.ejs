@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script src="./res/index.js" defer></script>
+    <link href="./res/index.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Esteban&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Changa:wght@200..800&display=swap');
+    </style>
+</head>
+<body>
+    <div id="login">
+        <h3>Welcome to Gabriel Asset Management Engine</h3>
+        <p>Login to access your Gabriel GAME account</p>
+        <form method="POST" id="login-form" action="#" onsubmit="checkForm(this); return false">
+            <input id="email-box" type="text" class="textInput" name="username" placeholder="username@gabrielny.com"><br>
+            <p id="email-error" class="error">Invalid Email.</p>
+            <div id="passwordDiv">
+                <input type="password" class="textInput" name="password" placeholder="password"><br>
+                <img id= "passEye" src="./res/images/openeye.svg" height="25px" width="20px" >
+                <p id="pass-error" class="error">Password should be at least 8 characters.</p>
+            </div>
+            <div id="remember-forgot">
+                <label><input type="checkbox">Remember Me</label>
+                <a href="#forgotpass">Forgot Password?</a><br>
+            </div>
+            <% if(err == "1"){%>
+                <p style="color: red">Invalid email or password.</p>
+            <% } %>
+            <input type="submit" value="Login">
+        </form>
+        
+    </div>
+</body>
+</html>
