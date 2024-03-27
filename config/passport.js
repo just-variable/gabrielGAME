@@ -1,26 +1,29 @@
-const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
+const {Strategy} = require("passport-jwt");
+const fs = require("fs");
 
+let PUB_key = fs.readFileSync("./id_rsa_pub.pem", "utf8");
 
-const strategy = new LocalStrategy((username, password, done)=>{
-    console.log(`[+] Authenticating: ${username}, ${password}...`);
-    if(username == "test@gmail.com" && password == "test@123"){
-        console.log(`[+] Authentication of ${username} success."`);
-        return done(null, "1");
+var cookieExtractor = function(req) {
+    var token = null;
+    if (req && req.cookies.jwt) {
+        token = req.cookies.jwt.token;
     }
-    console.log(`[+] Authentication of ${username} failed"`);
-    return done(null, false);
+    return token;
+};
+
+const options = {
+    jwtFromRequest: cookieExtractor,
+    secretOrKey: PUB_key,
+    algorithms: ['RS256']
+}
+
+const strategy = new Strategy(options, (payload, done)=>{
+    console.log(`payload from strategy: ${JSON.stringify(payload)}`)
+    done(null, payload.sub);
 })
 
-passport.use(strategy);
 
-passport.serializeUser((user, done)=>{
-    console.log(`serializing: ${user}`);
-    done(null, user);
-})
 
-passport.deserializeUser((user, done)=>{
-    if(user == "1"){
-        done(null, "test");
-    }
-})
+module.exports = (passport)=>{
+    passport.use(strategy);
+};

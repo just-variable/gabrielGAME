@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const path = require("path");
-const passport = require("passport");
+const {issueJWT} = require("../config/utils.js")
+
 
 router.get("/", (req, res)=>{
     if(req.isAuthenticated()){
@@ -12,6 +13,19 @@ router.get("/", (req, res)=>{
 });
 
 
-router.post("/", passport.authenticate('local', {failureRedirect:"/login?err=1", successRedirect: "/listing"}));
+router.post("/", (req, res)=>{
+    if(req.body.username == "test@gmail.com" && req.body.password == "test@123"){
+
+        const token = issueJWT("1")
+
+        res.cookie("jwt", token, {
+            httpOnly: true,
+        })
+
+        res.status(200).redirect("/listing")
+    } else {
+        res.redirect("/login?err=1")
+    }
+});
 
 module.exports = router;

@@ -74,9 +74,18 @@ function newDiv(desc, price, sku, imgURL){
 //     document.querySelector("body").append(newDiv(arrayOfRings[i].desc, arrayOfRings[i].price, arrayOfRings[i].sku, arrayOfRings[i].imageUrl))
 // }
 
+// fetch(`http://localhost:3000/api/rings/`).then(e=> {return e.json()})
+// .then(data=>{
+//     console.log(data);
+//     data.forEach(e => {
+//         document.querySelector("body").append(newDiv(e.desc, e.price, e.sku, e.imageUrl));
+//     });
+// });
+
 fetch(`http://localhost:3000/api/rings/`).then(e=> {return e.json()})
 .then(data=>{
+    console.log(data);
     data.forEach(e => {
-        document.querySelector("body").append(newDiv(e.desc, e.price, e.sku, e.imageUrl))
+        document.querySelector("body").append(newDiv(e.desc, e.price, e.sku, e.imageUrl));
     });
 });

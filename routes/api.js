@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const passport = require("passport");
 
 let arrayOfRings = [
     {
@@ -46,7 +47,7 @@ let arrayOfRings = [
     }
 ]
 
-router.get("/rings", (req, res)=>{
+router.get("/rings", passport.authenticate("jwt", {session:false}), (req, res)=>{
     res.status(200).send(arrayOfRings);
 })
 
